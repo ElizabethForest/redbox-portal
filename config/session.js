@@ -75,6 +75,9 @@ module.exports.session = {
   ***************************************************************************/
   adapter: 'mongo',
   mongoUrl: 'mongodb://mongodb:27017/sessions', // user, password and port optional
+  handleConstructingSessionStore: (sessionConfig, configuredSessionAdapter, expressSessionFromSailsCore) => {
+    return new configuredSessionAdapter(sessionConfig);
+  }
 
   /***************************************************************************
   *                                                                          *
